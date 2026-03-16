@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-
+@app.route('/')
+def home():
+    return "<h1>QR Lost & Found System is Online</h1><p>The server is running perfectly. Scan a tag to begin.</p>"
 # Mock database mapping Tag IDs to Owner Emails
 # In a real app, you'd use a SQL database
 owner_db = {
