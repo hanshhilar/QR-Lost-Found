@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found an Item?</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: center; }
+        h1 { color: #2c3e50; font-size: 1.5rem; }
+        p { color: #7f8c8d; margin-bottom: 1.5rem; }
+        textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 1rem; resize: none; box-sizing: border-box; }
+        button { background-color: #27ae60; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1rem; }
+        button:hover { background-color: #219150; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Item Found!</h1>
+        <p>This item belongs to a registered owner. You can send them a secure message below to coordinate its return[cite: 17, 18].</p>
+        <form action="/send-message" method="POST">
+            <input type="hidden" name="tag_id" value="TAG123"> <textarea name="message" rows="4" placeholder="Example: I found your keys at the college canteen. I'll leave them at the security desk." required></textarea>
+            <button type="submit">Send Message to Owner</button>
+        </form>
+    </div>
+</body>
+</html>
