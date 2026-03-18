@@ -11,15 +11,15 @@ def home():
     return "<h1>QR Lost & Found System is Online</h1><p>The server is running perfectly. Scan a tag to begin.</p>"
 
 @app.route('/tag/<tag_id>')
-@app.route('/TAG/<tag_id>')  # Handles phones that auto-capitalize
 def view_tag(tag_id):
-    # Convert input to uppercase to match our owner_db keys
-    tag_id_upper = tag_id.upper()
+    # This makes sure TAG001 and tag001 both work
+    tag_id = tag_id.upper()
     
-    if tag_id_upper in owner_db:
-        return render_template('index.html', tag_id=tag_id_upper)
+    if tag_id in owner_db:
+        return render_template('index.html', tag_id=tag_id)
     
-    return f"<h1>Invalid Tag: {tag_id}</h1><p>This tag is not registered in the system.</p>", 404
+    # If it fails, this will tell us what ID the server received
+    return f"<h1>Server received: {tag_id}</h1><p>This ID is not in your owner_db!</p>", 404
 
 @app.route('/send-message', methods=['POST'])
 def send_message():
