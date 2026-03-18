@@ -7,7 +7,6 @@ def home():
 # Mock database mapping Tag IDs to Owner Emails
 # In a real app, you'd use a SQL database
 owner_db = {f"TAG{i:03d}": "hansh@example.com" for i in range(1, 101)}
-}
 
 @app.route('/tag/<tag_id>')
 def view_tag(tag_id):
